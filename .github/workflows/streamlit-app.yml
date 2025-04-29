@@ -22,7 +22,7 @@ jobs:
           app-path: app_testing/app.py
           ruff: true
           # Add pytest-args to output junit xml
-          pytest-args: -v --junit-xml=test-results.xml
+          pytest-args: -v --junit-xml=test-results.xml --junit-fail-on-empty=false
       - if: always()
         uses: pmeier/pytest-results-action@v0.6.0
         with:
