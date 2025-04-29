@@ -1,6 +1,7 @@
 # """test_app.py"""
 from streamlit.testing.v1 import AppTest
 
+
 def test_no_interaction():
     at = AppTest.from_file("./app_testing/app.py")
     at.secrets["password"] = "streamlit"
@@ -11,6 +12,7 @@ def test_no_interaction():
     assert len(at.success) == 0
     assert len(at.button) == 0
     assert at.text_input[0].value == ""
+
 
 def test_incorrect_password():
     at = AppTest.from_file("./app_testing/app.py")
@@ -25,6 +27,7 @@ def test_incorrect_password():
     assert at.text_input[0].value == ""
     assert "Incorrect password" in at.warning[0].value
 
+
 def test_correct_password():
     at = AppTest.from_file("./app_testing/app.py")
     at.secrets["password"] = "streamlit"
@@ -38,6 +41,7 @@ def test_correct_password():
     assert "Login successful" in at.success[0].value
     assert at.button[0].label == "Log out"
 
+
 def test_log_out():
     at = AppTest.from_file("./app_testing/app.py")
     at.secrets["password"] = "streamlit"
@@ -50,4 +54,3 @@ def test_log_out():
     assert len(at.success) == 0
     assert len(at.button) == 0
     assert at.text_input[0].value == ""
-    

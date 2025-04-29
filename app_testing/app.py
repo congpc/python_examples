@@ -1,4 +1,5 @@
 """app.py"""
+
 import streamlit as st
 import hmac
 
@@ -13,13 +14,16 @@ def check_password():
         st.session_state.status = "incorrect"
     st.session_state.password = ""
 
+
 def login_prompt():
     st.text_input("Enter password:", key="password", on_change=check_password)
     if st.session_state.status == "incorrect":
         st.warning("Incorrect password. Please try again.")
 
+
 def logout():
     st.session_state.status = "unverified"
+
 
 def welcome():
     st.success("Login successful.")

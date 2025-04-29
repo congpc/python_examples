@@ -5,7 +5,7 @@ st.set_page_config(
     page_icon="👋",
 )
 
-st.title('Multi pages')
+st.title("Multi pages")
 
 st.write("# Welcome to Streamlit! 👋")
 
